@@ -5,7 +5,7 @@ and tracks whether or not it has been completed
 
 ## Documentation
 ```
-https://anisha7.github.io/custom-api/#/
+https://anisha7.github.io/custom-api/
 ```
 
 ## Use Instructions
