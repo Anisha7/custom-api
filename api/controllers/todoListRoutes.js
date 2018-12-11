@@ -6,7 +6,7 @@ let Class = require('../models/classes');
 // todoList Routes
 app.get("/", (req, res) => {
   
-  res.redirect("/tasks")
+  res.redirect("/classes")
 })
 
 app.get("/classes", (req, res) => {
