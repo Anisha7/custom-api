@@ -8,7 +8,8 @@ var express = require('express'),
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Tododb', { useNewUrlParser: true }); 
+var connectionString = process.env.MONGODB_URI || 'mongodb://localhost/Tododb'
+mongoose.connect(connectionString, { useNewUrlParser: true }); 
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -63,7 +64,7 @@ Classes.find({name: 'back-end-web-1.1'}).then(found => {
                         status: 'completed'
                     }
                 ]
-                
+
             },
             {
                 name: 'CS-1.2',
