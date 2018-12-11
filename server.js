@@ -2,6 +2,7 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
+  Classes = require('./api/models/classes'),
   Task = require('./api/models/todoListModel'), //created model loading here
   bodyParser = require('body-parser');
   
@@ -19,23 +20,66 @@ app.use(bodyParser.json());
 
 // Hard-coding: Adding data to the data base
 // let Task = require('/models/todoListModel');
-Task.insertMany([
-    {
-         name: 'rotten-potatoes',
-         Created_date: new Date("2018-07-25"),
-         status: 'completed'
-    },
-    {
-        name: 'reddit-clone',
-        Created_date: new Date("2018-09-20"),
-        status: 'completed'
-    },
-    {
-        name: 'api-project',
-        Created_date: new Date("2018-11-08"),
-        status: 'completed'
+
+Classes.find({name: 'back-end-web-1.1'}).then(found => {
+    if (found.length == 0) {
+        Classes.insertMany([
+            {
+                name: 'back-end-web-1.1',
+                tasks: [
+                    {
+                        name: 'gif-search',
+                        Created_date: new Date("2018-07-25"),
+                        status: 'completed'
+                    },
+                    {
+                        name: 'rotten-potatoes',
+                        Created_date: new Date("2018-07-25"),
+                        status: 'completed'
+                    },
+                    {
+                        name: 'contractor-project',
+                        Created_date: new Date("2018-07-25"),
+                        status: 'completed'
+                    }
+                ]
+            },
+            {
+                name: 'back-end-web-1.2',
+                tasks: [
+                    {
+                        name: 'animal-api',
+                        Created_date: new Date("2018-09-25"),
+                        status: 'completed'
+                    },
+                    {
+                        name: 'reddit-clone',
+                        Created_date: new Date("2018-09-25"),
+                        status: 'completed'
+                    },
+                    {
+                        name: 'custom-api',
+                        Created_date: new Date("2018-09-25"),
+                        status: 'completed'
+                    }
+                ]
+            },
+            {
+                name: 'CS-1.2',
+                tasks: [
+                    {
+                        name: 'tweet-generator',
+                        Created_date: new Date("2018-10-25"),
+                        status: 'completed'
+                    }
+                ]
+            }
+    
+        ])
     }
-])
+})
+
+
 
 
 var routes = require('./api/controllers/todoListRoutes'); //importing route
