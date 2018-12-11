@@ -63,6 +63,7 @@ Classes.find({name: 'back-end-web-1.1'}).then(found => {
                         status: 'completed'
                     }
                 ]
+                
             },
             {
                 name: 'CS-1.2',
@@ -78,8 +79,6 @@ Classes.find({name: 'back-end-web-1.1'}).then(found => {
         ])
     }
 })
-
-
 
 
 var routes = require('./api/controllers/todoListRoutes'); //importing route
